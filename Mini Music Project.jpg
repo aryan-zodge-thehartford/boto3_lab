@@ -825,14 +825,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "File uploaded to bucket aryan-techcatalyst-lab with key put_object/put_object_key.txt.\n"
+     "ename": "ParamValidationError",
+     "evalue": "Parameter validation failed:\nMissing required parameter in input: \"Key\"\nUnknown parameter in input: \"Keys\", must be one of: ACL, Body, Bucket, CacheControl, ContentDisposition, ContentEncoding, ContentLanguage, ContentLength, ContentMD5, ContentType, ChecksumAlgorithm, ChecksumCRC32, ChecksumCRC32C, ChecksumSHA1, ChecksumSHA256, Expires, GrantFullControl, GrantRead, GrantReadACP, GrantWriteACP, Key, Metadata, ServerSideEncryption, StorageClass, WebsiteRedirectLocation, SSECustomerAlgorithm, SSECustomerKey, SSECustomerKeyMD5, SSEKMSKeyId, SSEKMSEncryptionContext, BucketKeyEnabled, RequestPayer, Tagging, ObjectLockMode, ObjectLockRetainUntilDate, ObjectLockLegalHoldStatus, ExpectedBucketOwner",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mParamValidationError\u001b[0m                      Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[13], line 24\u001b[0m\n\u001b[1;32m     22\u001b[0m \u001b[38;5;66;03m# Upload the file to S3 using put_object\u001b[39;00m\n\u001b[1;32m     23\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m \u001b[38;5;28mopen\u001b[39m (filename, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mrb\u001b[39m\u001b[38;5;124m'\u001b[39m) \u001b[38;5;28;01mas\u001b[39;00m f:\n\u001b[0;32m---> 24\u001b[0m     \u001b[43ms3\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mput_object\u001b[49m\u001b[43m(\u001b[49m\u001b[43mBucket\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mbucket_name\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mKeys\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mkey\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mBody\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mf\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     26\u001b[0m \u001b[38;5;66;03m# Print a confirmation message\u001b[39;00m\n\u001b[1;32m     27\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mFile uploaded to bucket \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mbucket_name\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m with key \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mkey\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m.\u001b[39m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[0;32m~/.python/current/lib/python3.10/site-packages/botocore/client.py:565\u001b[0m, in \u001b[0;36mClientCreator._create_api_method.<locals>._api_call\u001b[0;34m(self, *args, **kwargs)\u001b[0m\n\u001b[1;32m    561\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mTypeError\u001b[39;00m(\n\u001b[1;32m    562\u001b[0m         \u001b[38;5;124mf\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;132;01m{\u001b[39;00mpy_operation_name\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m() only accepts keyword arguments.\u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m    563\u001b[0m     )\n\u001b[1;32m    564\u001b[0m \u001b[38;5;66;03m# The \"self\" in this scope is referring to the BaseClient.\u001b[39;00m\n\u001b[0;32m--> 565\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43m_make_api_call\u001b[49m\u001b[43m(\u001b[49m\u001b[43moperation_name\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mkwargs\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/.python/current/lib/python3.10/site-packages/botocore/client.py:974\u001b[0m, in \u001b[0;36mBaseClient._make_api_call\u001b[0;34m(self, operation_name, api_params)\u001b[0m\n\u001b[1;32m    970\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m properties:\n\u001b[1;32m    971\u001b[0m     \u001b[38;5;66;03m# Pass arbitrary endpoint info with the Request\u001b[39;00m\n\u001b[1;32m    972\u001b[0m     \u001b[38;5;66;03m# for use during construction.\u001b[39;00m\n\u001b[1;32m    973\u001b[0m     request_context[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mendpoint_properties\u001b[39m\u001b[38;5;124m'\u001b[39m] \u001b[38;5;241m=\u001b[39m properties\n\u001b[0;32m--> 974\u001b[0m request_dict \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43m_convert_to_request_dict\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m    975\u001b[0m \u001b[43m    \u001b[49m\u001b[43mapi_params\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mapi_params\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    976\u001b[0m \u001b[43m    \u001b[49m\u001b[43moperation_model\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43moperation_model\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    977\u001b[0m \u001b[43m    \u001b[49m\u001b[43mendpoint_url\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mendpoint_url\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    978\u001b[0m \u001b[43m    \u001b[49m\u001b[43mcontext\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mrequest_context\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    979\u001b[0m \u001b[43m    \u001b[49m\u001b[43mheaders\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43madditional_headers\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    980\u001b[0m \u001b[43m\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    981\u001b[0m resolve_checksum_context(request_dict, operation_model, api_params)\n\u001b[1;32m    983\u001b[0m service_id \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_service_model\u001b[38;5;241m.\u001b[39mservice_id\u001b[38;5;241m.\u001b[39mhyphenize()\n",
+      "File \u001b[0;32m~/.python/current/lib/python3.10/site-packages/botocore/client.py:1048\u001b[0m, in \u001b[0;36mBaseClient._convert_to_request_dict\u001b[0;34m(self, api_params, operation_model, endpoint_url, context, headers, set_user_agent_header)\u001b[0m\n\u001b[1;32m   1039\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m_convert_to_request_dict\u001b[39m(\n\u001b[1;32m   1040\u001b[0m     \u001b[38;5;28mself\u001b[39m,\n\u001b[1;32m   1041\u001b[0m     api_params,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m   1046\u001b[0m     set_user_agent_header\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m,\n\u001b[1;32m   1047\u001b[0m ):\n\u001b[0;32m-> 1048\u001b[0m     request_dict \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43m_serializer\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mserialize_to_request\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m   1049\u001b[0m \u001b[43m        \u001b[49m\u001b[43mapi_params\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43moperation_model\u001b[49m\n\u001b[1;32m   1050\u001b[0m \u001b[43m    \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m   1051\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_client_config\u001b[38;5;241m.\u001b[39minject_host_prefix:\n\u001b[1;32m   1052\u001b[0m         request_dict\u001b[38;5;241m.\u001b[39mpop(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mhost_prefix\u001b[39m\u001b[38;5;124m'\u001b[39m, \u001b[38;5;28;01mNone\u001b[39;00m)\n",
+      "File \u001b[0;32m~/.python/current/lib/python3.10/site-packages/botocore/validate.py:381\u001b[0m, in \u001b[0;36mParamValidationDecorator.serialize_to_request\u001b[0;34m(self, parameters, operation_model)\u001b[0m\n\u001b[1;32m    377\u001b[0m     report \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_param_validator\u001b[38;5;241m.\u001b[39mvalidate(\n\u001b[1;32m    378\u001b[0m         parameters, operation_model\u001b[38;5;241m.\u001b[39minput_shape\n\u001b[1;32m    379\u001b[0m     )\n\u001b[1;32m    380\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m report\u001b[38;5;241m.\u001b[39mhas_errors():\n\u001b[0;32m--> 381\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m ParamValidationError(report\u001b[38;5;241m=\u001b[39mreport\u001b[38;5;241m.\u001b[39mgenerate_report())\n\u001b[1;32m    382\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_serializer\u001b[38;5;241m.\u001b[39mserialize_to_request(\n\u001b[1;32m    383\u001b[0m     parameters, operation_model\n\u001b[1;32m    384\u001b[0m )\n",
+      "\u001b[0;31mParamValidationError\u001b[0m: Parameter validation failed:\nMissing required parameter in input: \"Key\"\nUnknown parameter in input: \"Keys\", must be one of: ACL, Body, Bucket, CacheControl, ContentDisposition, ContentEncoding, ContentLanguage, ContentLength, ContentMD5, ContentType, ChecksumAlgorithm, ChecksumCRC32, ChecksumCRC32C, ChecksumSHA1, ChecksumSHA256, Expires, GrantFullControl, GrantRead, GrantReadACP, GrantWriteACP, Key, Metadata, ServerSideEncryption, StorageClass, WebsiteRedirectLocation, SSECustomerAlgorithm, SSECustomerKey, SSECustomerKeyMD5, SSEKMSKeyId, SSEKMSEncryptionContext, BucketKeyEnabled, RequestPayer, Tagging, ObjectLockMode, ObjectLockRetainUntilDate, ObjectLockLegalHoldStatus, ExpectedBucketOwner"
      ]
     }
    ],
@@ -860,7 +868,7 @@
     "\n",
     "# Upload the file to S3 using put_object\n",
     "with open (filename, 'rb') as f:\n",
-    "    s3.put_object(Bucket=bucket_name, Key=key, Body=f)\n",
+    "    s3.put_object(Bucket=bucket_name, Keys=key, Body=f)\n",
     "\n",
     "# Print a confirmation message\n",
     "print(f'File uploaded to bucket {bucket_name} with key {key}.')"
@@ -875,17 +883,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "File put_object/put_object_key.txt downloaded from bucket aryan-techcatalyst-lab to /workspaces/boto3_lab/Mini Music Project.jpg.\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "import configparser\n",
     "import boto3\n",
@@ -907,7 +907,7 @@
     "# Define the file to download and the target local path\n",
     "bucket_name = 'aryan-techcatalyst-lab'\n",
     "key = 'put_object/put_object_key.txt'\n",
-    "filename = '/workspaces/boto3_lab/Mini Music Project.jpg'\n",
+    "filename = '/workspaces/boto3_lab/download_file'\n",
     "\n",
     "# Download the file from S3\n",
     "\n",
@@ -938,21 +938,14 @@
     "config.read('aws.cfg')\n",
     "\n",
     "# Initialize the S3 client\n",
-    "s3 = boto3.client(\n",
-    "    's3',\n",
-    "    aws_access_key_id=aws_access_key,\n",
-    "    aws_secret_access_key=aws_secret_key\n",
-    ")\n",
+    "\n",
     "\n",
     "# Define the file to download and the target local path\n",
-    "bucket_name = 'aryan-techcatalyst-lab'\n",
+    "bucket_name =  # Replace with your bucket name\n",
     "key =  # Replace with your file key in S3\n",
     "\n",
-    "key = 'put_object/put_object_key.txt'\n",
-    "\n",
     "# Download the file from S3 using file-like object\n",
-    "with open(filename, 'wb') as f:\n",
-    "    output = \n",
+    "\n",
     "\n",
     "# Print a confirmation message\n",
     "print(f'File {key} downloaded from bucket {bucket_name} to local file.')"
