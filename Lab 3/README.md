@@ -2,13 +2,19 @@
 
 **Description**: This is the SQL script that initializes the AWS connection, create the csv file format and uses copy into to take any csv files into a newly created snowflake transient table
 
+Make sure to put
+* URL= name_of_bucket
+* CREDENTIALS (AWS access key and AWS secret key)
+
+
+When you're creating the stage (beginning clause)
+
 ---
 ### SQL Script
 ``` sql
 CREATE OR REPLACE STAGE TECHCATALYST_DE.EXTERNAL_STAGE.ARYAN_WK6_LAB3_AWS_STAGE
-        --STORAGE_INTEGRATION = s3_int
-        --URL= name_of_bucket
-        -- CREDENTIALS
+        --placholder for url
+        --placeholder for credential verification
 
 CREATE OR REPLACE FILE FORMAT csv_format
 TYPE = 'CSV'
