@@ -1,8 +1,10 @@
 ## Lab 4: Architechture Diagram
- A proposed end-to-end solution diagram that highlights what you can accomplish using the skills in Lab 1, Lab 2, and Lab 3.
+
+ **Diagram Description**:  A proposed end-to-end solution diagram that highlights what you can accomplish using the skills in Lab 1, Lab 2, and Lab 3.
 
  ---
-![Lab4Diagram](images/Lab%204%20Diagram.jpg)
+
+![LabDiagram](Lab%20Diagram.jpg)
 
 ### Use Cases
 
